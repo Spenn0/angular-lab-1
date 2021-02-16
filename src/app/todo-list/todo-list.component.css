@@ -1,0 +1,15 @@
+.ul {
+  height: 500px;
+  width: 500px;
+}
+.task {
+  position: relative;
+}
+.x {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.completed {
+  text-decoration: line-through;
+}

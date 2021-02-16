@@ -1,0 +1,29 @@
+<header>
+  <h1>My Todo App</h1>
+</header>
+
+<ul>
+  <li
+    *ngFor="let item of toDoList; index as i"
+    class="task"
+    [ngClass]="{ completed: item.completed }"
+  >
+    <p>Task: {{ item.task }}</p>
+    <p>Status: {{ item.completed }}</p>
+    <button (click)="deleteTask(i)" class="x">X</button>
+
+    <button *ngIf="!item.completed" (click)="toggleTask(item)">
+      Completed!
+    </button>
+  </li>
+</ul>
+
+<!-- <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+  <label for="task">Task</label>
+  <input type="text" id="task" name="task" ngModel />
+</form> -->
+<form class="form" #filterForm="ngForm" (input)="filter(filterForm)">
+  <label for="filter">Filter your tasks!</label>
+  <input type="text" id="filter" name="filter" placeholder="filter" ngModel />
+  <button (click)="filter(filterForm)">filter</button>
+</form>
